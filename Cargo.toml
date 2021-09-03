@@ -1,0 +1,20 @@
+[package]
+name = "todo-rs"
+version = "0.1.0"
+edition = "2018"
+
+#https://docs.rs/structopt/0.3.21/structopt/#how-to-derivestructopt
+[dependencies]
+anyhow = "1.0"          # Manipula os erros e exibe mensagens de erros mais amigáveis
+home = "0.5"            # Coloca o arquivo diario no diretório pessoal 
+structopt = "0.3.21"    # Analisa os argumentos de linha de comando e os coloca em uma estrutura 
+serde_json = "1.0"      # Analisa o conteúdo do arquivo de diario em um vetorde `Tesk`.
+
+[dependencies.serde]    # Add serde em sua própria seção.
+version = "1.0"
+features = ["derive"]   # Precisamos do recurso derive 
+
+[dependencies.chrono]
+version = "0.4"
+features = ["serde"]    # Também vamos precisar do recurso serde para a crate chrono, para que possamos serializar o campo DateTime.
+
